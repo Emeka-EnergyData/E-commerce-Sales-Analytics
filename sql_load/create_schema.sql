@@ -15,8 +15,6 @@ analyzing sales performance, customer behavior, seller
 performance, product trends, payments, and customer reviews
 from the Olist Brazilian E-commerce dataset.
 
-The geolocation table is excluded because it is not required
-for the business questions explored in this project.
 */
 
 
@@ -202,7 +200,7 @@ CREATE TABLE order_payments (
 
 CREATE TABLE order_reviews (
 
-    review_id CHAR(32) PRIMARY KEY,
+    review_id CHAR(32),
 
     order_id CHAR(32) NOT NULL,
 
@@ -249,7 +247,7 @@ ALTER TABLE products OWNER to postgres;
 ALTER TABLE product_category_name_translation OWNER to postgres;
 ALTER TABLE orders OWNER to postgres;
 ALTER TABLE order_items OWNER to postgres;
-ALTER TABLE order_payments OWNER to postgre
+ALTER TABLE order_payments OWNER to postgres;
 ALTER TABLE order_reviews OWNER to postgres;
 ALTER TABLE geolocation OWNER to postgres;
 
