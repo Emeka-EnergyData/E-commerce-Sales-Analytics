@@ -2,6 +2,6 @@
 /csv
 /README copy.md
 
-02_data_cleaning.sql
+/02_data_cleaning.sql
 03_exploratory_data_analysis.sql
 04_advanced_analysis.sql
