@@ -14,7 +14,6 @@
 - [] Visualizations
 
 ## Business Task
-The business task is perform an exploratory analysis of an e-commerce business and uncover actionable business insights using SQL.
 
 ## Data Exploration
 This project uses the **Brazilian Olist E-commerce Dataset**, obtained from Kaggle. The dataset was originally provided as multitple CSV files. For this project the data was imported into a PostgreSQL relational database for analysis.
@@ -28,3 +27,39 @@ The database consists of 9 tables representing different aspects of an e-commerc
 - **products** provides descriptive information about each product, such as its category and physical characteristics.
 - **product_category_name_translation** maps Portugese product category names to their English equivalents.
 - **sellers** stores seller identifiers and location information
+
+The tables are related through 
+
+- Are there issues with bias or credibility in this data? Does your data ROCCC? 
+- How are you addressing licensing, privacy, security, and accessibility? 
+- How did you verify the data’s integrity? 
+- How does it help you answer your question? 
+- Are there any problems with the data?
+
+Key tasks ● Download data and store it appropriately. ● Identify how it’s organized. ● Sort and filter the data. ● Determine the credibility of the data.
+Deliverable ● A description of all data sources used
+
+I verified the data integrity by ensuring all datasets have consistent columns and each column has the correct type of data
+
+## Tools
+- Postgresql
+- Git
+
+## Data Cleaning 
+
+
+## Exploratory Data Analysis
+
+
+## Advanced Analysis
+
+## Summary of Analysis
+
+## Supporting Visualizations and key findings 
+
+
+## Dashboard
+
+
+## Recommendations Based on Analysis
+
