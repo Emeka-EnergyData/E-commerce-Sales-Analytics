@@ -40,7 +40,7 @@ WHERE t.table_schema = 'public'
 AND t.constraint_type = 'FOREIGN KEY'     
 ORDER BY t.table_name;
 
---Discover how the tables related
+-- Discover how the tables are related
 SELECT 
     c.table_name AS parent_table,
     c.column_name AS primary_key,
@@ -76,3 +76,41 @@ SELECT 'products', COUNT(*)  FROM products
 UNION ALl 
 SELECT 'sellers', COUNT(*)  FROM sellers
 ORDER BY table_name;
+
+-- Check the informations in tables
+
+SELECT *
+FROM customers
+LIMIT 5;
+
+SELECT *
+FROM geolocation
+LIMIT 5;
+
+SELECT *
+FROM order_items
+LIMIT 5;
+
+SELECT *
+FROM order_payments
+LIMIT 5;
+
+SELECT *
+FROM order_reviews
+LIMIT 5;
+
+SELECT *
+FROM orders
+LIMIT 5;
+
+SELECT *
+FROM product_category_name_translation
+LIMIT 5;
+
+SELECT *
+FROM products
+LIMIT 5;
+
+SELECT *
+FROM sellers
+LIMIT 5;
