@@ -1,5 +1,7 @@
 # E-Commerce-Sales-Analytics
 ## Overview
+This project is an end-to-end SQL analysis of the Olist Brazilian E-commerce dataset using PostgreSQL to uncover insights into customer behavior, sales performance, payments, reviews, and delivery operations.
+The project follows a structured analytics workflow, beginning with database exploration and data quality assessment before moving into exploratory data analysis (EDA) and business-driven insights. The goal is to demonstrate practical SQL skills by analyzing real-world e-commerce data and communicating actionable findings.
 
 ## Project Status
 🚧 In Progress
