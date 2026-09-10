@@ -7,25 +7,24 @@ The project follows a structured analytics workflow, beginning with database exp
 
 ## Project Status
 
-🚧 In Progress
-
 ## Current Progress
 
 - [x] Repository Created
 - [x] Load Data
 - [x] Data Exploration
 - [x] Data Quality Assessment
-- [] Exploratory Data Analysis
+- [x] Exploratory Data Analysis
 - [] Advanced Analysis
 - [] Visualizations
 
 ## Business Task
 
-The Olist store is an e-commerce business headquartered in Sao Paulo, Brazil.The business task is to analyze the e-commerce dataset to understand how the business is performing across sales, customers, products, payments, and customer satisfaction. The analysis aims to identify important patterns in the business and use those findings to determine which areas require deeper analysis and could provide actionable insights.
+The Olist store is an e-commerce business headquartered in Sao Paulo, Brazil. The business task is to analyze the e-commerce dataset to understand how the business is performing across sales, customers, products, payments, and customer satisfaction. The analysis aims to identify important patterns in the business and use those findings to determine which areas require deeper analysis and could provide actionable insights.
 
 ## Tools
 
 - Postgresql
+- Power BI
 - Git
 
 ## Data Exploration
@@ -139,7 +138,7 @@ erDiagram
     }
 ```
 
-## Data Ouality Assesment
+## Data Quality Assesment
 
 1. I checked for duplicates in each table. No duplicates where found in the customer, order_items, order_payments, order_reviews, orders, products, sellers, product_category_name_translation table
 
