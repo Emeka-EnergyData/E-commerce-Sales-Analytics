@@ -79,38 +79,38 @@ ORDER BY table_name;
 
 -- Check the informations in tables
 
-SELECT *
+SELECT DISTINCT *
 FROM customers
-LIMIT 5;
+LIMIT 10;
 
 SELECT *
 FROM geolocation
-LIMIT 5;
+LIMIT 10;
 
 SELECT *
 FROM order_items
-LIMIT 5;
+LIMIT 10;
 
 SELECT *
 FROM order_payments
-LIMIT 5;
+LIMIT 1000;
 
 SELECT *
 FROM order_reviews
-LIMIT 5;
+LIMIT 10;
 
 SELECT *
 FROM orders
-LIMIT 5;
+LIMIT 10;
 
 SELECT *
 FROM product_category_name_translation
-LIMIT 5;
+LIMIT 10;
 
 SELECT *
 FROM products
-LIMIT 5;
+LIMIT 10;
 
 SELECT *
 FROM sellers
-LIMIT 5;
+LIMIT 10;

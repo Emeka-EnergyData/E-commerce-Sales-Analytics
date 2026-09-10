@@ -122,7 +122,7 @@ WHERE order_id IS NULL
     OR order_delivered_carrier_date IS NULL
     OR order_estimated_delivery_date IS NULL;
 
--- Checking why there are missing values in orders table
+-- Checking why there are missing delivery timestamps in orders table
 SELECT 
     order_status,
     COUNT(*) total_orders,
