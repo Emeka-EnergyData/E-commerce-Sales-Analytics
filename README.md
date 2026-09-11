@@ -166,6 +166,7 @@ Most customers and sellers are located in **São Paulo (SP)**, indicating a stro
 The dataset covers approximately **2 years, 1 month, and 12 days** of order activity, with a total payment value of **$16,008,872.12**.
 
 * **Question to investigate:** How did sales/payment value change over the period covered by the dataset?
+What drove the changes in sales over time?
 
 **3. Product category and customer satisfaction**
 
@@ -186,6 +187,7 @@ The order data contains timestamps for different stages of the purchasing and de
 * **Question to investigate:** Does longer delivery time correspond to lower customer review scores?
 
 ### Summary Table
+
 
 
 ## Recommendations

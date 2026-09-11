@@ -99,7 +99,7 @@ FROM sellers
 ORDER BY seller_city;
 
 -- Metrics Report
-SELECT 'Total Unique Customers' AS metric, COUNT(DISTINCT customer_id) AS value
+SELECT 'Total Unique Customers' AS metric, COUNT(DISTINCT customer_unique_id) AS value
 FROM customers
 UNION
 SELECT 'Total Unique Sellers' AS metric, COUNT(DISTINCT seller_id) AS value
@@ -111,7 +111,7 @@ UNION
 SELECT 'Total Unique Orders' AS metric, COUNT(DISTINCT order_id) AS value
 FROM orders
 UNION
-SELECT 'Total Revenue' AS metric, SUM(payment_value) AS value
+SELECT 'Total Payment Value' AS metric, SUM(payment_value) AS value
 FROM order_payments
 UNION
 SELECT 'Total Product Value' AS metric, SUM(price + freight_value) AS value
@@ -307,16 +307,26 @@ GROUP BY product_category_name
 ORDER BY unique_products DESC
 LIMIT 5;
 
--- Top 5 product category by average review score 
-SELECT 
-    COALESCE(p.product_category_name, 'Unknown') AS product_category_name, 
-    ROUND(AVG(r.review_score),2) AS avg_review_score
-FROM products p
-LEFT JOIN order_items oi 
-ON p.product_id = oi.product_id
-LEFT JOIN order_reviews r
-ON oi.order_id = r.order_id
-GROUP BY p.product_category_name
+-- Top 5 product categories by average review score
+
+WITH category_reviews AS (
+    SELECT DISTINCT
+        p.product_category_name,
+        oi.order_id,
+        r.review_id,
+        r.review_score
+    FROM products AS p
+    JOIN order_items AS oi
+        ON p.product_id = oi.product_id
+    JOIN order_reviews AS r
+        ON oi.order_id = r.order_id
+)
+
+SELECT
+    COALESCE(product_category_name, 'Unknown') AS product_category_name,
+    ROUND(AVG(review_score), 2) AS avg_review_score
+FROM category_reviews
+GROUP BY product_category_name
 ORDER BY avg_review_score DESC
 LIMIT 5;
 
@@ -328,14 +338,6 @@ FROM order_payments
 GROUP BY payment_type
 ORDER BY number_of_orders DESC;
 
--- Find the top payment type by average payment value
-SELECT
-    payment_type,
-    ROUND(AVG(payment_value),2) AS avg_payment_value
-FROM order_payments
-GROUP BY payment_type
-ORDER BY avg_payment_value DESC;
-
 -- Top payment type by total payment value
 SELECT 
     payment_type, 
@@ -343,9 +345,6 @@ SELECT
 FROM order_payments
 GROUP BY payment_type
 ORDER BY total_revenue DESC;
-
-
-
 
 
 -- Find the top products that most customers from SP buy
@@ -362,3 +361,23 @@ WHERE customer_state = 'SP'
 GROUP BY product_category_name
 HAVING COUNT(c.customer_state) > 5
 ORDER BY we DESC;
+
+
+/* Change Over Time */
+
+SELECT 
+    DATE_TRUNC('month', order_purchase_timestamp) AS order_date,
+    SUM(payment_value) AS total_sales,
+    COUNT(customer_id) AS total_customers,
+    COUNT(o.order_id) AS total_orders
+FROM orders AS o
+LEFT JOIN (SELECT 
+                SUM(payment_value) AS payment_value, 
+                order_id
+            FROM order_payments
+            GROUP BY order_id) AS p
+ON o.order_id = p.order_id
+GROUP BY order_date
+ORDER BY order_date;
+
+
